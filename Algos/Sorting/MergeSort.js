@@ -33,7 +33,7 @@ function merge(arr1, arr2) {
 
   // If j is less than arr2 then spread in the rest of arr2
   if (j < arr2.length) {
-    newArr.push(...arr2.slice(j))
+    newArr.push(...arr2.slice(j)) 
   }
 
   return newArr;
