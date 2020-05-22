@@ -34,7 +34,31 @@ class HashTable {
     return undefined
   }
 
-  
+  keys() {
+    let keysArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!keysArr.includes(this.keyMap[i][j][0])) {
+            keysArr.push(this.keyMap[i][j][0])
+          }
+        }
+      }
+    }
+    return keysArr
+  }
+
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          valuesArr.push(this.keyMap[i][j][1])
+        }
+      }
+    }
+    return new Set(valuesArr)
+  }
 }
 
 const hash = new HashTable(17)
@@ -46,6 +70,7 @@ hash.set("salmon", "100")
 hash.set("lightcoral", "100")
 hash.set("mediumvioletred", "yes")
 hash.set("plum", "grape")
+hash.set("dance", "grape")
 
 
-console.log(hash.get("maroon"))
+console.log(hash.values())
